@@ -461,8 +461,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/05/19/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/">
-      经典算法-水量算法
+    <a href="/2020/06/12/RabbitMQ/">
+      RabbitMQ
     </a>
   </h2>
 
@@ -485,6 +485,14 @@
           
             
               
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>RabbitMQ/基础环境搭建</p>
+    </a>
+  </div>
+
 
             
           
@@ -492,7 +500,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 19, 2020</p>
+    <p>发布于：Jun 12, 2020</p>
   </a>
 </div>
 
@@ -520,22 +528,23 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p>经典算法–最大存水量问题</p>
-<p>##题目：给出一个数组代表围柱的高度，求能围柱的最大的水量，例如数组{ 5，2，3，2，4 }，最大水量为5。</p>
-<p>思路：求出每个柱子上面能够存多少水，然后将每根柱子的存水量相加便能得到总的存水量，为求出每根柱子上能够存多少水，就要求出每根柱子左边最高的和右边最高柱子，然后用两者的最小值减去当前柱子的高度。 例如图中从左到右第二根柱子的高度为2，它左边最高柱子的值为5，右边最高柱子的值为4，因此它的最大存水量为 Min（4，5）-2=2。</p>
-<p>解法1<br>利用上面思路，从左到右遍历每根柱子，遍历的时候求出每根柱子左边最高和右边最高柱子的值，然后利用s两者的最小值减去当前柱子的高度就行了。时间复杂度O（n^2）,空间复杂度O（1）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public static int water1(int []arr)</span><br><span class="line">    &#123;</span><br><span class="line">        int water&#x3D;0;</span><br><span class="line">        &#x2F;&#x2F;water 用于保存最大存水量</span><br><span class="line">        if(arr&#x3D;&#x3D;null||arr.length&lt;&#x3D;1)</span><br><span class="line">            return 0;</span><br><span class="line">            &#x2F;&#x2F;如果只有一根柱子围不住水。</span><br><span class="line">        int leftLargest&#x3D;0,rightLargest&#x3D;0;</span><br><span class="line">        &#x2F;&#x2F;leftLargest,rightLargest 分别用于保存遍过程中，当前元素左边最大值，和右边最大值。</span><br><span class="line">        for(int i&#x3D;0;i&lt;arr.length;i++)</span><br><span class="line">        &#123;   </span><br><span class="line">            leftLargest&#x3D;0;</span><br><span class="line">            rightLargest&#x3D;0;</span><br><span class="line">            for(int j&#x3D;0;j&lt;i;j++)</span><br><span class="line">                leftLargest&#x3D;Math.max(leftLargest,arr[j]);</span><br><span class="line">                &#x2F;&#x2F;先求出当前元素左边最大值。         </span><br><span class="line">            for(int j&#x3D;arr.length-1;j&gt;i;j--)</span><br><span class="line">                rightLargest&#x3D;Math.max(rightLargest, arr[j]);</span><br><span class="line">                &#x2F;&#x2F;最求出当前元素右边最大值          </span><br><span class="line">            water+&#x3D;Math.min(leftLargest, rightLargest)&gt;arr[i]?Math.min(leftLargest, rightLargest)-arr[i]:0;</span><br><span class="line">&#x2F;&#x2F;左边最大值和右边最大值的最小值与当前元素比较如果小于当前元素，则当前元素上水量为0，围不住水，如果大于当前元素，则减去当前元素得到存水量。</span><br><span class="line">        &#125;                               </span><br><span class="line">        return water;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-<p>注意：<br>① 如果当前柱子大于它左右最大值的任何一个是存不了水的。</p>
-<p>解法2<br>分析上面的算法发现算法的时间复杂度为O（n^2）的原因是对于每个元素都要从左到右，和从右到最左遍历其两边最大值，假如使用两个数组 left[ ] , right[ ]来保存每个元素左边最大值，右边最大值的话，这样就不用每次都遍历了，因此时间复杂度可以减少到O（n），但空间复杂度为O（n），典型的空间换时间算法。如下图：对于数组{ 5, 2 , 6 , 2 , 4 }它的左右数组如下<br>左数组：<br> [5,5,6,6,6]<br>右数组 </p>
-<p> [4,4,6,6,6]<br>{ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public static int water1(int []arr)</span><br><span class="line">    &#123;</span><br><span class="line">        int water&#x3D;0;</span><br><span class="line">        if(arr&#x3D;&#x3D;null||arr.length&lt;&#x3D;1)</span><br><span class="line">            return 0;</span><br><span class="line">        int leftLargest&#x3D;0,rightLargest&#x3D;0;</span><br><span class="line">        int left[]&#x3D;new int[arr.length];</span><br><span class="line">        &#x2F;&#x2F;left 数组中保存每个元素左边的最大值，left[i]，表示数组中第i个元素的左边最大值。</span><br><span class="line">        int right[]&#x3D;new int[arr.length];</span><br><span class="line">        &#x2F;&#x2F;right数组中保存每个元素左边的最大值，right[i]，表示数组中第i个元素的右边最大值。</span><br><span class="line">        for(int i&#x3D;0;i&lt;arr.length;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            leftLargest&#x3D;Math.max(leftLargest,arr[i]);</span><br><span class="line">            left[i]&#x3D;leftLargest;            </span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;先遍历一次找出每个元素左边最大值。</span><br><span class="line">        for(int i&#x3D;arr.length-1;i&gt;&#x3D;0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            rightLargest&#x3D;Math.max(rightLargest,arr[i]);</span><br><span class="line">            right[i]&#x3D;rightLargest;          </span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;遍历找到每个元素右边最大值。</span><br><span class="line">        for(int i&#x3D;0;i&lt;arr.length;i++)</span><br><span class="line">        &#123;           </span><br><span class="line">            water+&#x3D;Math.min(left[i],right[i])&gt;arr[i]?Math.min(left[i],right[i])-arr[i]:0;           </span><br><span class="line">        &#125;   </span><br><span class="line">        &#x2F;&#x2F;利用当前元素的左边最大值和右边最大值求得存水量。  </span><br><span class="line">        return water;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure><br>上面算法的流程：<br>①从左到右遍历一次求出每个元素左边的最大值，保存在 left 数组中。<br>②从右到左遍历一次求出每个元素右边的最大值，保存在right数组中。<br>③最后一次遍历求出每个元素（每根柱子）的存水量。</p>
-<p>改进解法2 ：分析上面算法发现其实没有必要使用 left 数组，因为当从左到右遍历求存水量的过程中可以利用一个变量来保存当前元素左边的最大值。代码如下<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public static int water1(int []arr)</span><br><span class="line">    &#123;</span><br><span class="line">        int water&#x3D;0;</span><br><span class="line">        if(arr&#x3D;&#x3D;null||arr.length&lt;&#x3D;1)</span><br><span class="line">            return 0;</span><br><span class="line">        int leftLargest&#x3D;0,rightLargest&#x3D;0;</span><br><span class="line">        int right[]&#x3D;new int[arr.length];</span><br><span class="line">        &#x2F;&#x2F;只用一个右数组来保存从右到左的最大值。       </span><br><span class="line">        for(int i&#x3D;arr.length-1;i&gt;&#x3D;0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            rightLargest&#x3D;Math.max(rightLargest,arr[i]);</span><br><span class="line">            right[i]&#x3D;rightLargest;          </span><br><span class="line">        &#125;</span><br><span class="line">        for(int i&#x3D;0;i&lt;arr.length;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            leftLargest&#x3D;Math.max(leftLargest, arr[i]);</span><br><span class="line">            &#x2F;&#x2F;leftLargest 保存当前元素左边的最大值。</span><br><span class="line">            water+&#x3D;Math.min(leftLargest,right[i])&gt;arr[i]?Math.min(leftLargest,right[i])-arr[i]:0;   </span><br><span class="line"></span><br><span class="line">        &#125;       </span><br><span class="line">        return water;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure><br>解法3<br>能不能在时间复杂度O（n），空间复杂度O（1）的情况下来完成存水量的问题，答案是肯定的。数组为 { 5，2，3，2，4 }。</p>
-<p>当指针在1位置 也就是 数字2的时候 我们一定知道他的left(max)=5 ;<br>所以只要当指针一直移动我们只要更新最大值</p>
-<p>同理 right(max)我们也可以得知</p>
-<p>①上面左右两边的黄色块分别表示当前元素左边最大值和右边最大值。</p>
-<p>②left ，right分别代表从左到右移动和从右到左移动的指针。</p>
-<p>③如果当前元素的左边最大值比右边最大值小，则left指针向右移动，否则right指针向左移动。</p>
-<p>④这种左右指针移动的目的是为了保证所求的左右最大值一定是当前元素的左右最大值。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public static int water3(int []arr)</span><br><span class="line">    &#123;</span><br><span class="line">        int water&#x3D;0;</span><br><span class="line">        if(arr&#x3D;&#x3D;null||arr.length&lt;&#x3D;1)</span><br><span class="line">            return 0;</span><br><span class="line">        int largestLeft&#x3D;0,largestRight&#x3D;0;</span><br><span class="line">        &#x2F;&#x2F;分别保存左右两边最大值</span><br><span class="line">        int left&#x3D;0,right&#x3D;arr.length-1;</span><br><span class="line">        while(left&lt;right)</span><br><span class="line">        &#123;</span><br><span class="line">            largestLeft&#x3D;Math.max(arr[left], largestLeft);</span><br><span class="line">            largestRight&#x3D;Math.max(arr[right], largestRight);</span><br><span class="line">            &#x2F;&#x2F;获得左右两边最大值</span><br><span class="line">            if(largestLeft&gt;largestRight)</span><br><span class="line">            &#123;</span><br><span class="line">            &#x2F;&#x2F;如果左边最大值大于右边则右指针向移动</span><br><span class="line">                water+&#x3D;largestRight-arr[right--];</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">            &#x2F;&#x2F;否则左指针向右移动</span><br><span class="line">                water+&#x3D;largestLeft-arr[left++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return water;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure></p>
-<p> ##总结<br> ###首尾指针使用技巧<br> 1.能用首尾指针技巧解决的问题，往往是序列存在规律，但是其实这种要求并不严格<br> 2.首尾指针能使用的规则在于指针在移动过程中不会错过我们要的答案</p>
+        <p>1.安装RabbitMQ（在此说的安装是在Windows下安装）</p>
+<p> 安装RabbitMQ之前首先要安装Erlang语言开发包，下载地址：<a href="http://www.erlang.org/download/otp_win32_R15B.exe" target="_blank" rel="noopener">http://www.erlang.org/download/otp_win32_R15B.exe</a> 默认安装即可</p>
+<p>　  配置环境变量 ERLANG_HOME C:\Program Files (x86)\erl5.9 </p>
+<pre><code>添加到PATH  %ERLANG_HOME%\bin;</code></pre><p> 下载安装RabbitMQ，下载地址：<a href="http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.4/rabbitmq-server-3.3.4.exe" target="_blank" rel="noopener">http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.4/rabbitmq-server-3.3.4.exe</a> </p>
+<pre><code>配置环境变量 C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-2.8.0
+
+添加到PATH %RABBITMQ_SERVER%\sbin;</code></pre><p>  然后到dos里面切换到RabbitMQ目录下，执行rabbitmq-plugins.bat enable rabbitmq_management， 安装完成之后以管理员身份启动 rabbitmq：输入命令：</p>
+<p>　　rabbitmq-service.bat stop</p>
+<p>　　rabbitmq-service.bat install</p>
+<p>　　rabbitmq-service.bat start</p>
+<p>然后，浏览器中输入:127.0.0.1:15672,用户名密码是guest ,如果能登陆就说明安装成功。<br>2.接下来要安装php的amqp扩展</p>
+<p>先用phpinfo()查看php版本信息，最后根据上面的信息去下载相应的amqp版本：<a href="http://pecl.php.net/package/amqp" target="_blank" rel="noopener">http://pecl.php.net/package/amqp</a><br>将php_amqp.dll复制到php/ext，同时在php.ini中添加如下代码：</p>
+<p>[amqp]  </p>
+<p>extension=php_amqp.dll </p>
+<p>然后将rabbitmq.1.dll复制到php根目录C:/xampp/php/，同时修改apache配置文件httpd.conf，添加如下代码：</p>
+<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><p>LoadFile  “C:/xampp/php/rabbitmq.1.dll”  </p>
+<p>最后重启看看是否已经加载了amqp模块：</p>
 
       
     </div>
@@ -993,9 +1002,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/' rel="nofollow">
+    <a href='/categories/%E6%97%A5%E8%AE%B0/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>日记/微信/小程序/支付/微信小程序</p>
+      <p>微信/小程序/支付/微信小程序/日记</p>
     </a>
   </div>
 
@@ -1381,6 +1390,16 @@
             ><div class='name'>Docker</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
+            title="/categories/RabbitMQ/" href="/categories/RabbitMQ/"
+            id="categoriesRabbitMQ"
+            ><div class='name'>RabbitMQ</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" href="/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
+            id="categoriesRabbitMQE59FBAE7A180E78EAFE5A283E690ADE5BBBA"
+            ><div class='name'>基础环境搭建</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/js%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" href="/categories/js%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
             id="categoriesjsEFBC8CE6ADA3E58899E8A1A8E8BEBEE5BC8F"
             ><div class='name'>js，正则表达式</div><div class='badge'>(1)</div></a></li>
@@ -1432,7 +1451,7 @@
 
 
     <div class='content'>
-      <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 14px; color: #999">微信 小程序支付</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
+      <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 14px; color: #999">微信 小程序支付</a>
     </div>
   </section>
 
