@@ -351,6 +351,126 @@
         
           
   <h2 class="title">
+    <a href="/2020/05/12/%E4%BB%8A%E6%97%A5%E6%97%A5%E8%AE%B0%E8%AE%B0%E8%BD%BD%E6%89%80%E4%BA%86%E8%A7%A3%E5%88%B0%E7%9A%84%E4%B8%80%E7%82%B9%E4%B8%9C%E8%A5%BF/">
+      今日日记记载所了解到的一点东西
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="http://img4.imgtn.bdimg.com/it/u=2778807214,2040307822&fm=26&gp=0.jpg">
+    <p>start</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%97%A5%E8%AE%B0/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>日记</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 12, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于workman-的初步了解"><a href="#关于workman-的初步了解" class="headerlink" title="关于workman 的初步了解"></a>关于workman 的初步了解</h2><h3 id="client-id"><a href="#client-id" class="headerlink" title="client_id"></a>client_id</h3><p>在自己下载的GatewayClient 安装在tp5的目录下  js调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var  ws &#x3D; new Websocket(&quot;ws:&#x2F;&#x2F;127.0.0.1:8282&quot;);</span><br><span class="line">ws.onmessage &#x3D;functon(e)&#123;</span><br><span class="line"> console.log(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###websocket  所有的业务逻辑都在Events.php 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;**</span><br><span class="line"> * This file is part of workerman.</span><br><span class="line"> *</span><br><span class="line"> * Licensed under The MIT License</span><br><span class="line"> * For full copyright and license information, please see the MIT-LICENSE.txt</span><br><span class="line"> * Redistributions of files must retain the above copyright notice.</span><br><span class="line"> *</span><br><span class="line"> * @author walkor&lt;walkor@workerman.net&gt;</span><br><span class="line"> * @copyright walkor&lt;walkor@workerman.net&gt;</span><br><span class="line"> * @link http:&#x2F;&#x2F;www.workerman.net&#x2F;</span><br><span class="line"> * @license http:&#x2F;&#x2F;www.opensource.org&#x2F;licenses&#x2F;mit-license.php MIT License</span><br><span class="line"> *&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * 用于检测业务代码死循环或者长时间阻塞等问题</span><br><span class="line"> * 如果发现业务卡死，可以将下面declare打开（去掉&#x2F;&#x2F;注释），并执行php start.php reload</span><br><span class="line"> * 然后观察一段时间workerman.log看是否有process_timeout异常</span><br><span class="line"> *&#x2F;</span><br><span class="line">&#x2F;&#x2F;declare(ticks&#x3D;1);</span><br><span class="line"></span><br><span class="line">use \GatewayWorker\Lib\Gateway;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * 主逻辑</span><br><span class="line"> * 主要是处理 onConnect onMessage onClose 三个方法</span><br><span class="line"> * onConnect 和 onClose 如果不需要可以不用实现并删除</span><br><span class="line"> *&#x2F;</span><br><span class="line">class Events</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 当客户端连接时触发</span><br><span class="line">     * 如果业务不需此回调可以删除onConnect</span><br><span class="line">     * </span><br><span class="line">     * @param int $client_id 连接id</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public static function onConnect($client_id)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F; 向当前client_id发送数据 </span><br><span class="line">        Gateway::sendToClient($client_id, &quot;Hello $client_id\r\n&quot;);</span><br><span class="line">        &#x2F;&#x2F; 向所有人发送</span><br><span class="line">        Gateway::sendToAll(&quot;$client_id login\r\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   &#x2F;**</span><br><span class="line">    * 当客户端发来消息时触发</span><br><span class="line">    * @param int $client_id 连接id</span><br><span class="line">    * @param mixed $message 具体消息</span><br><span class="line">    *&#x2F;</span><br><span class="line">   public static function onMessage($client_id, $message)</span><br><span class="line">   &#123;</span><br><span class="line">        &#x2F;&#x2F; 向所有人发送 </span><br><span class="line">        Gateway::sendToAll(&quot;$client_id said $message\r\n&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   &#x2F;**</span><br><span class="line">    * 当用户断开连接时触发</span><br><span class="line">    * @param int $client_id 连接id</span><br><span class="line">    *&#x2F;</span><br><span class="line">   public static function onClose($client_id)</span><br><span class="line">   &#123;</span><br><span class="line">       &#x2F;&#x2F; 向所有人发送 </span><br><span class="line">       GateWay::sendToAll(&quot;$client_id logout\r\n&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="接下来测试了里面的方法-发现每次刷新-client-id-也会刷新-这样就不符合我们的开发"><a href="#接下来测试了里面的方法-发现每次刷新-client-id-也会刷新-这样就不符合我们的开发" class="headerlink" title="接下来测试了里面的方法 发现每次刷新 client_id 也会刷新 这样就不符合我们的开发"></a>接下来测试了里面的方法 发现每次刷新 client_id 也会刷新 这样就不符合我们的开发</h3><p>但是这样一个局域网的群聊 实现了 </p>
+<h3 id="—–-next-——-文档查看中—"><a href="#—–-next-——-文档查看中—" class="headerlink" title="—– next  ——-文档查看中—"></a>—– next  ——-文档查看中—</h3><p>我们发现了<br>##Events::onClose</p>
+<p>###注意：onClose回调里无法使用Gateway::getSession()来获得当前用户的session数据，但是仍然可以使用$_SESSION变量获得。</p>
+<hr>
+<p>###注意：onClose回调里无法使用Gateway::getUidByClientId()接口来获得uid，解决办法是在Gateway::bindUid()时记录一个$_SESSION[‘uid’]，onClose的时候用$_SESSION[‘uid’]来获得uid。</p>
+<p>一个东西吸引了我们  Gateway::bindUid()</p>
+<p>void Gateway::bindUid(string $client_id, mixed $uid);<br>将client_id与uid绑定，以便通过Gateway::sendToUid($uid)发送数据，通过Gateway::isUidOnline($uid)用户是否在线。</p>
+<p>uid解释：这里uid泛指用户id或者设备id，用来唯一确定一个客户端用户或者设备。</p>
+<p>注意：</p>
+<p>1、uid与client_id是一对多的关系，系统允许一个uid下有多个client_id。</p>
+<p>2、但是一个client_id只能绑定一个uid，如果绑定多次uid，则只有最后一次绑定有效。</p>
+<p>2、如果业务需要一对一的关系，可以通过Gateway::getClientIdByUid($uid)获得某uid已经绑定的所有client_id，然后调用closeClient($client_id)踢掉之前的client_id。</p>
+<p>3、client_id下线（连接断开）时会自动执行解绑，开发者无需调用Gateway::unbindUid解绑。</p>
+<p>4、如果某个uid对应的所有client_id都下线了，则调用Gateway::isUidOnline($uid)将返回0，即uid不在线。</p>
+<p>5、uid和client_id映射关系存储在Gateway进程内存中。</p>
+<p>6、调用Gateway::bindUid($client_id, $uid)的时机一般是在验证连接合法性的时候。例如客户端连上服务端后，发送的第一个数据包应当包含客户端的鉴权信息(例如用户名密码或者可用于鉴权的token)，服务端通过鉴权信息确定该连接属于哪个uid，然后调用Gateway::bindUid($client_id, $uid)绑定。</p>
+<h3 id="上面12345-我都能理解-好吧打破了我一开始以为把client-id-存在数据库一直使用的想法"><a href="#上面12345-我都能理解-好吧打破了我一开始以为把client-id-存在数据库一直使用的想法" class="headerlink" title="上面12345 我都能理解 好吧打破了我一开始以为把client_id 存在数据库一直使用的想法"></a>上面12345 我都能理解 好吧打破了我一开始以为把client_id 存在数据库一直使用的想法</h3><p>今日了解就到这里  </p>
+<p> 之后当然去实际行动啦！</p>
+<p> 于是乎 本着也想学习VUE 的心态  </p>
+<p> 去github  clone 下来一个wechat  vue  的APP</p>
+<p> emmm  结构是了解了<br> 可是  哪里定义的api根目录呀<br> 难受香菇  ！<br> 继续研究吧</p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
     <a href="/2020/05/11/%E4%B8%80%E5%B9%85%E5%9B%BE%E8%AF%BB%E6%87%82%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
       一幅图读懂正则表达式
     </a>
@@ -949,6 +1069,26 @@
             id="categoriesE697A5E8AEB0"
             ><div class='name'>日记</div><div class='badge'>(3)</div></a></li>
         
+          <li><a class="flat-box"
+            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
+            id="categoriesE7AE97E6B395"
+            ><div class='name'>算法</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/" href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/"
+            id="categoriesE7AE97E6B395E695B0E7BB84"
+            ><div class='name'>数组</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%AE%97%E6%B3%95/%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/"
+            id="categoriesE7AE97E6B395E6B0B4E9878FE7AE97E6B395"
+            ><div class='name'>水量算法</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%AE%97%E6%B3%95/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8/" href="/categories/%E7%AE%97%E6%B3%95/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8/"
+            id="categoriesE7AE97E6B395E79B9BE69C80E5A49AE6B0B4E5AEB9E599A8"
+            ><div class='name'>盛最多水容器</div><div class='badge'>(1)</div></a></li>
+        
       </ul>
     </div>
   </section>
@@ -971,7 +1111,7 @@
 
 
     <div class='content'>
-      <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/java-jdk/" style="font-size: 14px; color: #999">java jdk</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/laravel/" style="font-size: 14px; color: #999">laravel</a> <a href="/tags/php/" style="font-size: 24px; color: #555">php</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 24px; color: #555">微信 小程序支付</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
+      <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/java-jdk/" style="font-size: 14px; color: #999">java jdk</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/laravel/" style="font-size: 14px; color: #999">laravel</a> <a href="/tags/php/" style="font-size: 24px; color: #555">php</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 24px; color: #555">微信 小程序支付</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 24px; color: #555">算法</a>
     </div>
   </section>
 
