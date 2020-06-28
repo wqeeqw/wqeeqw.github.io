@@ -410,7 +410,7 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p><img src="https://blog.csdn.net/qq_39788732/article/details/107010548" alt="题目"></p>
+          <p><img src="https://img-blog.csdnimg.cn/20200628235019708.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5Nzg4NzMy,size_16,color_FFFFFF,t_70" alt="题目"></p>
 <p>##算法核心代码 双指针实现</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @param Integer[] $height</span><br><span class="line">     * @return Integer</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function maxArea($height) &#123;</span><br><span class="line">        $len &#x3D; count($height);</span><br><span class="line">        $indexLen &#x3D; $len - 1;</span><br><span class="line">        $maxContainer &#x3D; 0;</span><br><span class="line">        for($i &#x3D; 0,$j &#x3D; $indexLen;$i &lt; $j;)&#123;</span><br><span class="line">            $n1 &#x3D; [$i,$height[$i]];</span><br><span class="line">            $n2 &#x3D; [$j,$height[$j]];</span><br><span class="line">            $container &#x3D; $this-&gt;getContainer($n1,$n2);</span><br><span class="line">            if($container &gt; $maxContainer)&#123;</span><br><span class="line">                $maxContainer &#x3D; $container;</span><br><span class="line">            &#125;</span><br><span class="line">            $height[$i] &lt;&#x3D; $height[$j] ? $i++ : $j --;</span><br><span class="line">        &#125;</span><br><span class="line">        return $maxContainer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getContainer($n1,$n2)&#123;</span><br><span class="line">        return ($n2[0] -  $n1[0]) * min($n1[1],$n2[1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -487,7 +487,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-28T23:53:57+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-28T23:57:41+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 28, 2020</p>
