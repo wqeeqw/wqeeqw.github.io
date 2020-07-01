@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Springboot hello world</title>
+      <link href="/2020/07/01/Springboot-hello-world/"/>
+      <url>/2020/07/01/Springboot-hello-world/</url>
+      
+        <content type="html"><![CDATA[<h1 id="spring-boot2-3-1"><a href="#spring-boot2-3-1" class="headerlink" title="spring boot2.3.1"></a>spring boot2.3.1</h1><h2 id="idea-安装"><a href="#idea-安装" class="headerlink" title="idea 安装"></a>idea 安装</h2><p> idea具体的安装本人就不写了，请自行百度</p><h2 id="敲黑板-！！-springboot-3种建立项目的方式"><a href="#敲黑板-！！-springboot-3种建立项目的方式" class="headerlink" title="敲黑板 ！！ springboot 3种建立项目的方式"></a>敲黑板 ！！ springboot 3种建立项目的方式</h2><h3 id="1-star-spring-io"><a href="#1-star-spring-io" class="headerlink" title="1.star.spring.io"></a>1.star.spring.io</h3><p>快速建立 ，然后在idea里面导入 碰见的坑就是mavn 的安装，网上视频有的是老版本的不能用了</p><h3 id="2-idea-里面的一个spring-In啥的快速建立-其实和第一种方式一样-只是搬到了idea-上-，"><a href="#2-idea-里面的一个spring-In啥的快速建立-其实和第一种方式一样-只是搬到了idea-上-，" class="headerlink" title="2.idea 里面的一个spring In啥的快速建立 其实和第一种方式一样 只是搬到了idea 上 ，"></a>2.idea 里面的一个spring In啥的快速建立 其实和第一种方式一样 只是搬到了idea 上 ，</h3><h3 id="3-通过maven-建立spring项目"><a href="#3-通过maven-建立spring项目" class="headerlink" title="3.通过maven 建立spring项目"></a>3.通过maven 建立spring项目</h3><p>注意：这样一开始不是一个spring项目 需要在poe.xml里面进行增加配置项 才能算是一个spring项目  </p><p>详细代码 <a href="https://github.com/wqeeqw/java" target="_blank" rel="noopener">https://github.com/wqeeqw/java</a> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+          <category> spring boot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java spring boot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>盛最多水容器--PHP双指针</title>
       <link href="/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/"/>
       <url>/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/</url>
