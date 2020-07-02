@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,14 @@
 
   <!-- 页面元数据 -->
   
-    <title>Category: php面试题 - Be your own hero</title>
+    <title>分布式架构 - Be your own hero</title>
   
+    <meta name="keywords" content="架构">
+  
+  
+    <meta name="description" content="垂直应用架构下面讲讲经典的MVC垂直架构
+优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
+MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请...">
   
 
   <!-- feed -->
@@ -329,25 +333,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -357,11 +348,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/06/18/PHP%E9%9D%A2%E8%AF%95%E9%A2%98/">
-      PHP面试题
+  <h1 class="title">
+    <a href="/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">
+      分布式架构
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -384,9 +375,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/php/php%E9%9D%A2%E8%AF%95%E9%A2%98/' rel="nofollow">
+    <a href='/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>php/php面试题</p>
+      <p>分布式服务架构</p>
     </a>
   </div>
 
@@ -397,14 +388,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 18, 2020</p>
+    <p>发布于：Jul 2, 2020</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -422,99 +408,57 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>群里有朋友需要帮助，利用空余时间帮了下 </p>
-<h3 id="QQ群：159789818"><a href="#QQ群：159789818" class="headerlink" title="QQ群：159789818"></a>QQ群：159789818</h3><p>点击链接加群(欢迎大家前来讨论)：<br><a href="https://shang.qq.com/wpa/qunwpa?idkey=c25dbd4e063d339786ca5b1458b0ff1ef4f863dd3534a04017d9baf728372026" target="_blank" rel="noopener">https://shang.qq.com/wpa/qunwpa?idkey=c25dbd4e063d339786ca5b1458b0ff1ef4f863dd3534a04017d9baf728372026</a></p>
-<h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h2 id="1-S-3341、UX331、KL-72T如何求其中数字之和-例如：3341-331-72"><a href="#1-S-3341、UX331、KL-72T如何求其中数字之和-例如：3341-331-72" class="headerlink" title="1.S-3341、UX331、KL^72T如何求其中数字之和(例如：3341+331+72)"></a>1.S-3341、UX331、KL^72T如何求其中数字之和(例如：3341+331+72)</h2>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/06/18/PHP%E9%9D%A2%E8%AF%95%E9%A2%98/">
-            Read More <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h3 id="垂直应用架构"><a href="#垂直应用架构" class="headerlink" title="垂直应用架构"></a>垂直应用架构</h3><p>下面讲讲经典的MVC垂直架构</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>学习成本低，架构技术单一，开大上手快，测试部署运维比较简单</p>
+<h2 id="MVC-架构"><a href="#MVC-架构" class="headerlink" title="MVC 架构"></a>MVC 架构</h2><p>最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入<br>中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据<br>第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性</p>
+<a id="more"></a>
+<h2 id="业务的组网简单"><a href="#业务的组网简单" class="headerlink" title="业务的组网简单"></a>业务的组网简单</h2><p>在小规模的场景下，通常使用热双机 服务端监听浮动Ip ，通过WATCH DOG 监听应用进程</p>
+<p>在应用僵死或宕机 将应用切换到备机，然后尝试重新拉起主机。</p>
+<h2 id="高并发、大流量场景"><a href="#高并发、大流量场景" class="headerlink" title="高并发、大流量场景"></a>高并发、大流量场景</h2><p>需要做集群，前端通过F5等负载均衡做七层负载均衡。 后端做集群处理</p>
+<h3 id="垂直应用架构面临的挑战"><a href="#垂直应用架构面临的挑战" class="headerlink" title="垂直应用架构面临的挑战"></a>垂直应用架构面临的挑战</h3><h2 id="随着业务的越来越大"><a href="#随着业务的越来越大" class="headerlink" title="随着业务的越来越大"></a>随着业务的越来越大</h2><p>1.复杂应用的开发维护成本变高，部署效率降低<br>2.团队协作效率差，部分公共部分被重复开发，代码重复率居高不下。<br>3.系统可靠性变差 。要是某个应用接口发生故障，例如内存泄漏 会导致整个节点宕机。由于是对等集群部署，也意味着其他节点也会出现同样的问题 。宕机此起彼伏，严重影响业务的正常运行。<br>4.维护和定制困难，由于代码的不断膨胀，功能越来越复杂。代码修改 牵一发而动全身。<br>5.新功能周期变长。主要有以下2个原因<br> 5.1公共APi变更导致工作量激增.和前面提到的公共代码修改 。导致多处应用要测试修改<br> 5.2新特性无法独立部署和交付。测试出了bug 整个项目需要重新打包和部署</p>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-
-</div>
-<aside class='l_side'>
-  
+          
+            <div class='article_footer'>
+              
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='http://img.qqzhi.com/uploads/2018-11-30/084154682.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Be your own hero</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-        
-          
-            <a href="https://github.com/wqeeqw"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/>https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</a></p>
           
         
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -524,160 +468,195 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-02T23:17:28+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 2, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9E%B6%E6%9E%84/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>架构</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/&title=分布式架构 - Be your own hero&summary=垂直应用架构下面讲讲经典的MVC垂直架构
+优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
+MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/&title=分布式架构 - Be your own hero&summary=垂直应用架构下面讲讲经典的MVC垂直架构
+优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
+MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/&title=分布式架构 - Be your own hero&summary=垂直应用架构下面讲讲经典的MVC垂直架构
+优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
+MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/07/02/spring-boot-Servlet-2%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F-%E5%92%8CFilter%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/'>
+                <p class='title'>spring boot Servlet 2种实现方式 和Filter的2种方式 <i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>第一种方法:1.使用Servlet3的注解方式编写一个Servlet2.在main方法的主类上添加注解:
+第二种方式:
+通过springboot的配置类实现
+1.编写一个普通的Servlet 类...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '分布式架构',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Docker/" href="/categories/Docker/"
-            id="categoriesDocker"
-            ><div class='name'>Docker</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/RabbitMQ/" href="/categories/RabbitMQ/"
-            id="categoriesRabbitMQ"
-            ><div class='name'>RabbitMQ</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" href="/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
-            id="categoriesRabbitMQE59FBAE7A180E78EAFE5A283E690ADE5BBBA"
-            ><div class='name'>基础环境搭建</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/java/" href="/categories/java/"
-            id="categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/Jdk%E5%AE%89%E8%A3%85/" href="/categories/java/Jdk%E5%AE%89%E8%A3%85/"
-            id="categoriesjavaJdkE5AE89E8A385"
-            ><div class='name'>Jdk安装</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/spring-boot/" href="/categories/java/spring-boot/"
-            id="categoriesjavaspring-boot"
-            ><div class='name'>spring boot</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/js%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" href="/categories/js%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
-            id="categoriesjsEFBC8CE6ADA3E58899E8A1A8E8BEBEE5BC8F"
-            ><div class='name'>js，正则表达式</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/laravel/" href="/categories/laravel/"
-            id="categorieslaravel"
-            ><div class='name'>laravel</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/laravel/paypal%E6%94%AF%E4%BB%98/" href="/categories/laravel/paypal%E6%94%AF%E4%BB%98/"
-            id="categorieslaravelpaypalE694AFE4BB98"
-            ><div class='name'>paypal支付</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/php/" href="/categories/php/"
-            id="categoriesphp"
-            ><div class='name'>php</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/php/php%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/categories/php/php%E9%9D%A2%E8%AF%95%E9%A2%98/"
-            id="categoriesphpphpE99DA2E8AF95E9A298"
-            ><div class='name'>php面试题</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/php/%E5%BF%AB%E9%80%92%E9%B8%9F%E7%89%A9%E6%B5%81%E8%B7%9F%E8%B8%AA/" href="/categories/php/%E5%BF%AB%E9%80%92%E9%B8%9F%E7%89%A9%E6%B5%81%E8%B7%9F%E8%B8%AA/"
-            id="categoriesphpE5BFABE98092E9B89FE789A9E6B581E8B79FE8B8AA"
-            ><div class='name'>快递鸟物流跟踪</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/"
-            id="categoriesE58886E5B883E5BC8FE69C8DE58AA1E69EB6E69E84"
-            ><div class='name'>分布式服务架构</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E5%BE%AE%E4%BF%A1/" href="/categories/%E5%BE%AE%E4%BF%A1/"
-            id="categoriesE5BEAEE4BFA1"
-            ><div class='name'>微信</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E5%BE%AE%E4%BF%A1/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%BE%AE%E4%BF%A1/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"
-            id="categoriesE5BEAEE4BFA1E5B08FE7A88BE5BA8F"
-            ><div class='name'>小程序</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%94%AF%E4%BB%98/" href="/categories/%E6%94%AF%E4%BB%98/"
-            id="categoriesE694AFE4BB98"
-            ><div class='name'>支付</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"
-            id="categoriesE694AFE4BB98E5BEAEE4BFA1E5B08FE7A88BE5BA8F"
-            ><div class='name'>微信小程序</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%97%A5%E8%AE%B0/" href="/categories/%E6%97%A5%E8%AE%B0/"
-            id="categoriesE697A5E8AEB0"
-            ><div class='name'>日记</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
-            id="categoriesE7AE97E6B395"
-            ><div class='name'>算法</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/" href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/"
-            id="categoriesE7AE97E6B395E695B0E7BB84"
-            ><div class='name'>数组</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%AE%97%E6%B3%95/%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/"
-            id="categoriesE7AE97E6B395E6B0B4E9878FE7AE97E6B395"
-            ><div class='name'>水量算法</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%AE%97%E6%B3%95/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8/" href="/categories/%E7%AE%97%E6%B3%95/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8/"
-            id="categoriesE7AE97E6B395E79B9BE69C80E5A49AE6B0B4E5AEB9E599A8"
-            ><div class='name'>盛最多水容器</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直应用架构"><span class="toc-text">垂直应用架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-架构"><span class="toc-text">MVC 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务的组网简单"><span class="toc-text">业务的组网简单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发、大流量场景"><span class="toc-text">高并发、大流量场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直应用架构面临的挑战"><span class="toc-text">垂直应用架构面临的挑战</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随着业务的越来越大"><span class="toc-text">随着业务的越来越大</span></a>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/java-jdk/" style="font-size: 14px; color: #999">java jdk</a> <a href="/tags/java-spring-boot/" style="font-size: 24px; color: #555">java spring boot</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/laravel/" style="font-size: 14px; color: #999">laravel</a> <a href="/tags/php/" style="font-size: 24px; color: #555">php</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 24px; color: #555">微信 小程序支付</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 14px; color: #999">架构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 24px; color: #555">算法</a>
-    </div>
-  </section>
-
-
-  
-
-  
 
   
 
@@ -884,6 +863,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
