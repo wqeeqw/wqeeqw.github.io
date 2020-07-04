@@ -16,14 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>分布式架构 - Be your own hero</title>
+    <title>RPC架构 - Be your own hero</title>
   
     <meta name="keywords" content="架构">
   
-  
-    <meta name="description" content="垂直应用架构下面讲讲经典的MVC垂直架构
-优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
-MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请...">
   
 
   <!-- feed -->
@@ -349,8 +345,8 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
         
           
   <h1 class="title">
-    <a href="/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">
-      分布式架构
+    <a href="/2020/07/04/RPC%E6%9E%B6%E6%9E%84/">
+      RPC架构
     </a>
   </h1>
 
@@ -388,7 +384,7 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 2, 2020</p>
+    <p>发布于：Jul 4, 2020</p>
   </a>
 </div>
 
@@ -411,14 +407,10 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h3 id="垂直应用架构"><a href="#垂直应用架构" class="headerlink" title="垂直应用架构"></a>垂直应用架构</h3><p>下面讲讲经典的MVC垂直架构</p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>学习成本低，架构技术单一，开大上手快，测试部署运维比较简单</p>
-<h2 id="MVC-架构"><a href="#MVC-架构" class="headerlink" title="MVC 架构"></a>MVC 架构</h2><p>最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入<br>中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据<br>第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性</p>
-<a id="more"></a>
-<h2 id="业务的组网简单"><a href="#业务的组网简单" class="headerlink" title="业务的组网简单"></a>业务的组网简单</h2><p>在小规模的场景下，通常使用热双机 服务端监听浮动Ip ，通过WATCH DOG 监听应用进程</p>
-<p>在应用僵死或宕机 将应用切换到备机，然后尝试重新拉起主机。</p>
-<h2 id="高并发、大流量场景"><a href="#高并发、大流量场景" class="headerlink" title="高并发、大流量场景"></a>高并发、大流量场景</h2><p>需要做集群，前端通过F5等负载均衡做七层负载均衡。 后端做集群处理</p>
-<h3 id="垂直应用架构面临的挑战"><a href="#垂直应用架构面临的挑战" class="headerlink" title="垂直应用架构面临的挑战"></a>垂直应用架构面临的挑战</h3><h2 id="随着业务的越来越大"><a href="#随着业务的越来越大" class="headerlink" title="随着业务的越来越大"></a>随着业务的越来越大</h2><p>1.复杂应用的开发维护成本变高，部署效率降低<br>2.团队协作效率差，部分公共部分被重复开发，代码重复率居高不下。<br>3.系统可靠性变差 。要是某个应用接口发生故障，例如内存泄漏 会导致整个节点宕机。由于是对等集群部署，也意味着其他节点也会出现同样的问题 。宕机此起彼伏，严重影响业务的正常运行。<br>4.维护和定制困难，由于代码的不断膨胀，功能越来越复杂。代码修改 牵一发而动全身。<br>5.新功能周期变长。主要有以下2个原因<br> 5.1公共APi变更导致工作量激增.和前面提到的公共代码修改 。导致多处应用要测试修改<br> 5.2新特性无法独立部署和交付。测试出了bug 整个项目需要重新打包和部署</p>
+          <h3 id="RPC是什么"><a href="#RPC是什么" class="headerlink" title="RPC是什么?"></a>RPC是什么?</h3><p>rpc 全称 Remote pricedure call 就是一种进程间的通信方式<br>Rpc 简单 通用 高效。</p>
+<h3 id="PRC框架原理"><a href="#PRC框架原理" class="headerlink" title="PRC框架原理"></a>PRC框架原理</h3><p>RPC框架的目标就是让远程过程(服务)调用更加简单、透明，RPC框架负责屏蔽底<br>层的传输方式(TCP或者UDP)、序列化方式( XML/JSON/二进制)和通信细节。框架使<br>用者只需要了解谁在什么位置提供了什么样的远程服务接口即可，开发者不需要关心底层<br>通信细节和调用过程</p>
+<h4 id="RPC框架实现的几个核心技术点总结如下。"><a href="#RPC框架实现的几个核心技术点总结如下。" class="headerlink" title="RPC框架实现的几个核心技术点总结如下。"></a>RPC框架实现的几个核心技术点总结如下。</h4><p>1)远程服务提供者需要以某种形式提供服务调用相关的信息，包括但不限于服务接<br>口定义、数据结构，或者中间态的服务定义文件，例如Thrift的IDL文件，WS-RPC<br>的WSDL文件定义，甚至也可以是服务端的接口说明文档:服务调用者需要通过<br>一.定的途径获取远程服务调用相关信息，例如服务端接口定义Jar包导入，获取<br>服务端IDL文件等。<br>2)远程代理对象:服务调用者调用的服务实际是远程服务的本地代理，对于Java语<br>言，它的实现就是JDK的动态代理，通过动态代理的拦截机制，将本地调用封装<br>成远程服务调用。<br>3)通信: RPC框架与具体的协议无关，例如Spring的远程调用支持HTTP Invoke、<br>RMIInvoke,MessagePack使用的是私有的二进制压缩协议。<br>4).序列化:远程通信，需要将对象转换成二进制码流进行网络传输，不同的序列化<br>框架，支持的数据类型、数据包大小、异常类型及性能等都不同。不同的RPC框<br>架应用场景不同，因此技术选择也会存在很大差异。-些做得比较好的RPC框架，<br>可以支持多种序列化方式，有的甚至支持用户自定义序列化框架(Hadoop Avro)。</p>
+<h3 id="RPC框架面临的挑战"><a href="#RPC框架面临的挑战" class="headerlink" title="RPC框架面临的挑战"></a>RPC框架面临的挑战</h3><p>在大规模服务化之前，应用可能只是通过RPC框架，简单的暴露和引用远程服务，<br>通过配置服务的URL地址进行远程服务调用，路由则通过F5硬件负载均衡器或者SLB<br>进行简单的负载均衡。<br>当服务越来越多时，服务URL配置管理变得非常困难，F5等硬件负载均衡器的单点<br>压力也越来越大。此时需要一个服务注册中心，动态地注册和发现服务，使服务的位置透<br>明。消费者在本地缓存服务提供者列表，实现软负载均衡，这可以降低对F5等硬件负载<br>均衡器的依赖，也能降低硬件成本。<br>随着业务的发展，服务间依赖关系变得错综复杂，甚至分不清哪个应用要在哪个应用<br>之前启动，架构师都不能完整地描述应用之间的调用关系。需要一个分布式消息跟踪系统<br>可视化展示服务调用链，用于依赖分析、业务调用路径梳理等，帮助架构师清理不合理的<br>服务依赖，防止业务服务架构腐化。<br>服务的调用量越来越大，服务的容量问题就暴露出来了，某个服务需要多少机器支撑、<br>什么时候该加机器?为了解决容量规划问题，需要采集服务调用KPI数据，进行汇总和分<br>析，通过计算得出服务部署实例数和服务器的配置规格。<br>服务上线容易下线难，上线前的审批，下线通知，需要统一的服务 生命周期管理流程<br>进行管控。不同的服务安全权限不同，如何保证敏感服务不被误调用?服务的访问安全策<br>略又如何制定?<br>服务化之后，随之而来的就是服务治理问题。目前业界开源纯粹的RPC框架服务治<br>理能力都不健全，当应用大规模服务化之后会面临许多服务治理方面的挑战，要解决这些<br>问题，必须通过服务框架+服务治理来完成，单凭RPC框架无法解决服务治理问题。</p>
 
           
             <div class='article_footer'>
@@ -455,7 +447,7 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
           
         
           
-            <p>本文永久链接是：<a href=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/>https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</a></p>
+            <p>本文永久链接是：<a href=https://wqeeqw.github.io/2020/07/04/RPC%E6%9E%B6%E6%9E%84/>https://wqeeqw.github.io/2020/07/04/RPC%E6%9E%B6%E6%9E%84/</a></p>
           
         
       </blockquote>
@@ -492,10 +484,10 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-02T23:17:28+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-04T22:19:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 2, 2020</p>
+    <p>更新于：Jul 4, 2020</p>
   </a>
 </div>
 
@@ -522,9 +514,7 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/&title=分布式架构 - Be your own hero&summary=垂直应用架构下面讲讲经典的MVC垂直架构
-优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
-MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://wqeeqw.github.io/2020/07/04/RPC%E6%9E%B6%E6%9E%84/&title=RPC架构 - Be your own hero&summary="
           
           >
           
@@ -536,9 +526,7 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/&title=分布式架构 - Be your own hero&summary=垂直应用架构下面讲讲经典的MVC垂直架构
-优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
-MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wqeeqw.github.io/2020/07/04/RPC%E6%9E%B6%E6%9E%84/&title=RPC架构 - Be your own hero&summary="
           
           >
           
@@ -550,9 +538,7 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://wqeeqw.github.io/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/&title=分布式架构 - Be your own hero&summary=垂直应用架构下面讲讲经典的MVC垂直架构
-优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
-MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，html+css 等。向用户显示相关的数据，并且能接受用户的输入中间为调度控制层 Control  主要用于前端web请求的分发，控制器接收数据并调用相对应的模型组件去处理，并显示相应的视图显示模型返回的数据第三层为应用模型层 Model 主要用于处理数据和业务执行逻辑 当数据发生变化的时候 负责通知视图部分，由于一个模型可以被多个视图调用。提高了模型的可重用性"
+          href="http://service.weibo.com/share/share.php?url=https://wqeeqw.github.io/2020/07/04/RPC%E6%9E%B6%E6%9E%84/&title=RPC架构 - Be your own hero&summary="
           
           >
           
@@ -576,19 +562,12 @@ MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为
         
           <div class="prev-next">
             
-              <a class='prev' href='/2020/07/04/RPC%E6%9E%B6%E6%9E%84/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>RPC架构</p>
-                <p class='content'>RPC是什么?rpc 全称 Remote pricedure call 就是一种进程间的通信方式Rpc 简单 通用 高效。
-PRC框架原理RPC框架的目标就是让远程过程(服务)调用更加简单、透明...</p>
-              </a>
             
-            
-              <a class='next' href='/2020/07/02/spring-boot-Servlet-2%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F-%E5%92%8CFilter%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/'>
-                <p class='title'>spring boot Servlet 2种实现方式 和Filter的2种方式 <i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>第一种方法:1.使用Servlet3的注解方式编写一个Servlet2.在main方法的主类上添加注解:
-第二种方式:
-通过springboot的配置类实现
-1.编写一个普通的Servlet 类...</p>
+              <a class='next' href='/2020/07/02/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/'>
+                <p class='title'>分布式架构<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>垂直应用架构下面讲讲经典的MVC垂直架构
+优点学习成本低，架构技术单一，开大上手快，测试部署运维比较简单
+MVC 架构最前端是 View  主要用于前端展示，使用的开发工具为 jsp ，js ，...</p>
               </a>
             
           </div>
@@ -633,7 +612,7 @@ PRC框架原理RPC框架的目标就是让远程过程(服务)调用更加简单
 
   <script>
     window.subData = {
-      title: '分布式架构',
+      title: 'RPC架构',
       tools: true
     }
   </script>
@@ -659,7 +638,7 @@ PRC框架原理RPC框架的目标就是让远程过程(服务)调用更加简单
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直应用架构"><span class="toc-text">垂直应用架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-架构"><span class="toc-text">MVC 架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务的组网简单"><span class="toc-text">业务的组网简单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发、大流量场景"><span class="toc-text">高并发、大流量场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直应用架构面临的挑战"><span class="toc-text">垂直应用架构面临的挑战</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随着业务的越来越大"><span class="toc-text">随着业务的越来越大</span></a>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC是什么"><span class="toc-text">RPC是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PRC框架原理"><span class="toc-text">PRC框架原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RPC框架实现的几个核心技术点总结如下。"><span class="toc-text">RPC框架实现的几个核心技术点总结如下。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC框架面临的挑战"><span class="toc-text">RPC框架面临的挑战</span></a></li></ol>
     </div>
   </section>
 
