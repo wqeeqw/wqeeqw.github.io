@@ -16,14 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>RabbitMQ - Be your own hero</title>
-  
-    <meta name="keywords" content="RabbitMQ">
+    <title>盛最多水容器-PHP双指针 - Be your own hero</title>
   
   
-    <meta name="description" content="1.安装RabbitMQ（在此说的安装是在Windows下安装）
- 安装RabbitMQ之前首先要安装Erlang语言开发包，下载地址：http://www.erlang.org/download/otp_win32_R15B.exe 默认安装即可
-　  配置环境变量 ERLANG_HOME C:\Program...">
+    <meta name="description" content="
+title: 盛最多水容器–PHP双指针date: 2020-06-28 23:24:22tags:    算法categories:         - [算法,盛最多水容器]–
+算法核心代码 双指针实现">
   
 
   <!-- feed -->
@@ -349,8 +347,8 @@
         
           
   <h1 class="title">
-    <a href="/2020/06/12/RabbitMQ/">
-      RabbitMQ
+    <a href="/2020/07/08/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/">
+      盛最多水容器-PHP双指针
     </a>
   </h1>
 
@@ -373,14 +371,6 @@
           
             
               
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>RabbitMQ/基础环境搭建</p>
-    </a>
-  </div>
-
 
             
           
@@ -388,7 +378,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 12, 2020</p>
+    <p>发布于：Jul 8, 2020</p>
   </a>
 </div>
 
@@ -411,24 +401,10 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p>1.安装RabbitMQ（在此说的安装是在Windows下安装）</p>
-<p> 安装RabbitMQ之前首先要安装Erlang语言开发包，下载地址：<a href="http://www.erlang.org/download/otp_win32_R15B.exe" target="_blank" rel="noopener">http://www.erlang.org/download/otp_win32_R15B.exe</a> 默认安装即可</p>
-<p>　  配置环境变量 ERLANG_HOME C:\Program Files (x86)\erl5.9 </p>
-<pre><code>添加到PATH  %ERLANG_HOME%\bin;</code></pre><p> 下载安装RabbitMQ，下载地址：<a href="http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.4/rabbitmq-server-3.3.4.exe" target="_blank" rel="noopener">http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.4/rabbitmq-server-3.3.4.exe</a> </p>
-<a id="more"></a>
-<pre><code>配置环境变量 C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-2.8.0
-
-添加到PATH %RABBITMQ_SERVER%\sbin;</code></pre><p>  然后到dos里面切换到RabbitMQ目录下，执行rabbitmq-plugins.bat enable rabbitmq_management， 安装完成之后以管理员身份启动 rabbitmq：输入命令：</p>
-<p>　　rabbitmq-service.bat stop</p>
-<p>　　rabbitmq-service.bat install</p>
-<p>　　rabbitmq-service.bat start</p>
-<p>然后，浏览器中输入:127.0.0.1:15672,用户名密码是guest ,如果能登陆就说明安装成功。<br>2.接下来要安装php的amqp扩展</p>
-<p>先用phpinfo()查看php版本信息，最后根据上面的信息去下载相应的amqp版本：<a href="http://pecl.php.net/package/amqp" target="_blank" rel="noopener">http://pecl.php.net/package/amqp</a><br>将php_amqp.dll复制到php/ext，同时在php.ini中添加如下代码：</p>
-<p>[amqp]  </p>
-<p>extension=php_amqp.dll </p>
-<p>然后将rabbitmq.1.dll复制到php根目录C:/xampp/php/，同时修改apache配置文件httpd.conf，添加如下代码：</p>
-<h1 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h1><p>LoadFile  “C:/xampp/php/rabbitmq.1.dll”  </p>
-<p>最后重启看看是否已经加载了amqp模块：</p>
+          <hr>
+<p>title: 盛最多水容器–PHP双指针<br>date: 2020-06-28 23:24:22<br>tags:<br>    算法<br>categories:<br>         - [算法,盛最多水容器]<br>–<br><img src="https://img-blog.csdnimg.cn/20200628235019708.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5Nzg4NzMy,size_16,color_FFFFFF,t_70" alt="题目"></p>
+<h3 id="算法核心代码-双指针实现"><a href="#算法核心代码-双指针实现" class="headerlink" title="算法核心代码 双指针实现"></a>算法核心代码 双指针实现</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @param Integer[] $height</span><br><span class="line">     * @return Integer</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function maxArea($height) &#123;</span><br><span class="line">        $len &#x3D; count($height);</span><br><span class="line">        $indexLen &#x3D; $len - 1;</span><br><span class="line">        $maxContainer &#x3D; 0;</span><br><span class="line">        for($i &#x3D; 0,$j &#x3D; $indexLen;$i &lt; $j;)&#123;</span><br><span class="line">            $n1 &#x3D; [$i,$height[$i]];</span><br><span class="line">            $n2 &#x3D; [$j,$height[$j]];</span><br><span class="line">            $container &#x3D; $this-&gt;getContainer($n1,$n2);</span><br><span class="line">            if($container &gt; $maxContainer)&#123;</span><br><span class="line">                $maxContainer &#x3D; $container;</span><br><span class="line">            &#125;</span><br><span class="line">            $height[$i] &lt;&#x3D; $height[$j] ? $i++ : $j --;</span><br><span class="line">        &#125;</span><br><span class="line">        return $maxContainer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getContainer($n1,$n2)&#123;</span><br><span class="line">        return ($n2[0] -  $n1[0]) * min($n1[1],$n2[1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
             <div class='article_footer'>
@@ -465,7 +441,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://wqeeqw.github.io/2020/06/12/RabbitMQ/>https://wqeeqw.github.io/2020/06/12/RabbitMQ/</a></p>
+            <p>本文永久链接是：<a href=https://wqeeqw.github.io/2020/07/08/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/>https://wqeeqw.github.io/2020/07/08/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/</a></p>
           
         
       </blockquote>
@@ -502,10 +478,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T23:46:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-08T20:29:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jul 8, 2020</p>
   </a>
 </div>
 
@@ -513,9 +489,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/RabbitMQ/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>RabbitMQ</p></a></div>
-
 
         
       
@@ -532,10 +505,9 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://wqeeqw.github.io/2020/06/12/RabbitMQ/&title=RabbitMQ - Be your own hero&summary=1.安装RabbitMQ（在此说的安装是在Windows下安装）
- 安装RabbitMQ之前首先要安装Erlang语言开发包，下载地址：http://www.erlang.org/download/otp_win32_R15B.exe 默认安装即可
-　  配置环境变量 ERLANG_HOME C:\Program Files (x86)\erl5.9 
-添加到PATH  %ERLANG_HOME%\bin; 下载安装RabbitMQ，下载地址：http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.4/rabbitmq-server-3.3.4.exe "
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://wqeeqw.github.io/2020/07/08/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/&title=盛最多水容器-PHP双指针 - Be your own hero&summary=
+title: 盛最多水容器–PHP双指针date: 2020-06-28 23:24:22tags:    算法categories:         - [算法,盛最多水容器]–
+算法核心代码 双指针实现"
           
           >
           
@@ -547,10 +519,9 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wqeeqw.github.io/2020/06/12/RabbitMQ/&title=RabbitMQ - Be your own hero&summary=1.安装RabbitMQ（在此说的安装是在Windows下安装）
- 安装RabbitMQ之前首先要安装Erlang语言开发包，下载地址：http://www.erlang.org/download/otp_win32_R15B.exe 默认安装即可
-　  配置环境变量 ERLANG_HOME C:\Program Files (x86)\erl5.9 
-添加到PATH  %ERLANG_HOME%\bin; 下载安装RabbitMQ，下载地址：http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.4/rabbitmq-server-3.3.4.exe "
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wqeeqw.github.io/2020/07/08/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/&title=盛最多水容器-PHP双指针 - Be your own hero&summary=
+title: 盛最多水容器–PHP双指针date: 2020-06-28 23:24:22tags:    算法categories:         - [算法,盛最多水容器]–
+算法核心代码 双指针实现"
           
           >
           
@@ -562,10 +533,9 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://wqeeqw.github.io/2020/06/12/RabbitMQ/&title=RabbitMQ - Be your own hero&summary=1.安装RabbitMQ（在此说的安装是在Windows下安装）
- 安装RabbitMQ之前首先要安装Erlang语言开发包，下载地址：http://www.erlang.org/download/otp_win32_R15B.exe 默认安装即可
-　  配置环境变量 ERLANG_HOME C:\Program Files (x86)\erl5.9 
-添加到PATH  %ERLANG_HOME%\bin; 下载安装RabbitMQ，下载地址：http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.4/rabbitmq-server-3.3.4.exe "
+          href="http://service.weibo.com/share/share.php?url=https://wqeeqw.github.io/2020/07/08/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/&title=盛最多水容器-PHP双指针 - Be your own hero&summary=
+title: 盛最多水容器–PHP双指针date: 2020-06-28 23:24:22tags:    算法categories:         - [算法,盛最多水容器]–
+算法核心代码 双指针实现"
           
           >
           
@@ -589,18 +559,17 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/2020/06/15/%E6%8E%A5%E5%85%A5PayPal%E6%94%AF%E4%BB%98/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>接入PayPal支付</p>
-                <p class='content'>PayPalPayPal, 全球众多用户使用的国际贸易支付工具, 能够轻松完成境外收付款！ 一个账户全球通用, 成为PayPal商家, 就能在任何地方接受更多付款方式。
-下载paypal sdk...</p>
+              <a class='prev' href='/2020/07/10/%E5%BE%AE%E4%BF%A1%E9%80%80%E6%AC%BE/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>微信退款</p>
+                <p class='content'>证书一定要，否则会400错误
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454...</p>
               </a>
             
             
-              <a class='next' href='/2020/05/19/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95-%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/'>
-                <p class='title'>经典算法-水量算法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>经典算法–最大存水量问题
-##题目：给出一个数组代表围柱的高度，求能围柱的最大的水量，例如数组{ 5，2，3，2，4 }，最大水量为5。
-思路：求出每个柱子上面能够存多少水，然后将每根柱子的存水...</p>
+              <a class='next' href='/2020/07/04/RPC%E6%9E%B6%E6%9E%84/'>
+                <p class='title'>RPC架构<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>RPC是什么?rpc 全称 Remote pricedure call 就是一种进程间的通信方式Rpc 简单 通用 高效。
+PRC框架原理RPC框架的目标就是让远程过程(服务)调用更加简单、透明...</p>
               </a>
             
           </div>
@@ -645,7 +614,7 @@
 
   <script>
     window.subData = {
-      title: 'RabbitMQ',
+      title: '盛最多水容器-PHP双指针',
       tools: true
     }
   </script>
@@ -671,7 +640,7 @@
 
 
     <div class='content'>
-      
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法核心代码-双指针实现"><span class="toc-text">算法核心代码 双指针实现</span></a></li></ol>
     </div>
   </section>
 

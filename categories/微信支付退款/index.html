@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -16,13 +18,8 @@
 
   <!-- 页面元数据 -->
   
-    <title>盛最多水容器--PHP双指针 - Be your own hero</title>
+    <title>Category: 微信支付退款 - Be your own hero</title>
   
-    <meta name="keywords" content="算法">
-  
-  
-    <meta name="description" content="
-算法核心代码 双指针实现">
   
 
   <!-- feed -->
@@ -332,12 +329,25 @@
     <div class='body-wrapper'>
       
 
+
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+    
       
+  <section class="post-list ">
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
 
 
   <section class='meta'>
@@ -347,11 +357,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
-    <a href="/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/">
-      盛最多水容器--PHP双指针
+  <h2 class="title">
+    <a href="/2020/07/10/%E5%BE%AE%E4%BF%A1%E9%80%80%E6%AC%BE/">
+      微信退款
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -374,9 +384,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E7%AE%97%E6%B3%95/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8/' rel="nofollow">
+    <a href='/categories/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%80%80%E6%AC%BE/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>算法/盛最多水容器</p>
+      <p>微信支付退款</p>
     </a>
   </div>
 
@@ -387,9 +397,14 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jun 28, 2020</p>
+    <p>发布于：Jul 10, 2020</p>
   </a>
 </div>
+
+            
+          
+            
+              
 
             
           
@@ -407,250 +422,260 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          <p><img src="https://img-blog.csdnimg.cn/20200628235019708.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5Nzg4NzMy,size_16,color_FFFFFF,t_70" alt="题目"></p>
-<h3 id="算法核心代码-双指针实现"><a href="#算法核心代码-双指针实现" class="headerlink" title="算法核心代码 双指针实现"></a>算法核心代码 双指针实现</h3><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @param Integer[] $height</span><br><span class="line">     * @return Integer</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function maxArea($height) &#123;</span><br><span class="line">        $len &#x3D; count($height);</span><br><span class="line">        $indexLen &#x3D; $len - 1;</span><br><span class="line">        $maxContainer &#x3D; 0;</span><br><span class="line">        for($i &#x3D; 0,$j &#x3D; $indexLen;$i &lt; $j;)&#123;</span><br><span class="line">            $n1 &#x3D; [$i,$height[$i]];</span><br><span class="line">            $n2 &#x3D; [$j,$height[$j]];</span><br><span class="line">            $container &#x3D; $this-&gt;getContainer($n1,$n2);</span><br><span class="line">            if($container &gt; $maxContainer)&#123;</span><br><span class="line">                $maxContainer &#x3D; $container;</span><br><span class="line">            &#125;</span><br><span class="line">            $height[$i] &lt;&#x3D; $height[$j] ? $i++ : $j --;</span><br><span class="line">        &#125;</span><br><span class="line">        return $maxContainer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getContainer($n1,$n2)&#123;</span><br><span class="line">        return ($n2[0] -  $n1[0]) * min($n1[1],$n2[1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-            <div class='article_footer'>
-              
-                
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
-  <div class='content'>
-    
-      <blockquote>
-        
-          
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-          
-        
-          
-            <p>本文永久链接是：<a href=https://wqeeqw.github.io/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/>https://wqeeqw.github.io/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode  desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
-  </div>
-</section>
-
-  
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-28T23:59:59+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 28, 2020</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>算法</p></a></div>
-
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://wqeeqw.github.io/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/&title=盛最多水容器--PHP双指针 - Be your own hero&summary=
-算法核心代码 双指针实现"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
-          
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wqeeqw.github.io/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/&title=盛最多水容器--PHP双指针 - Be your own hero&summary=
-算法核心代码 双指针实现"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://service.weibo.com/share/share.php?url=https://wqeeqw.github.io/2020/06/28/%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E5%AE%B9%E5%99%A8-PHP%E5%8F%8C%E6%8C%87%E9%92%88/&title=盛最多水容器--PHP双指针 - Be your own hero&summary=
-算法核心代码 双指针实现"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
+        <h3 id="证书一定要，否则会400错误"><a href="#证书一定要，否则会400错误" class="headerlink" title="证书一定要，否则会400错误"></a>证书一定要，否则会400错误</h3>
       
     </div>
+    
+      
+        <div class="button readmore">
+          <a href="/2020/07/10/%E5%BE%AE%E4%BF%A1%E9%80%80%E6%AC%BE/">
+            Read More <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      
+    
   </section>
+</article>
 
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/2020/07/01/Springboot-hello-world/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Springboot hello world</p>
-                <p class='content'>spring boot2.3.1idea 安装 idea具体的安装本人就不写了，请自行百度
-敲黑板 ！！ springboot 3种建立项目的方式1.star.spring.io快速建立 ，然后...</p>
-              </a>
-            
-            
-              <a class='next' href='/2020/06/23/linux%E5%AE%89%E8%A3%85jdk/'>
-                <p class='title'>linux安装jdk<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>Linux由于使用 yum 或者 apt-get 命令 安装 openjdk 可能存在类库不全，从而导致用户在安装后运行相关工具时可能报错的问题，所以此处我们推荐采用手动解压安装的方式来安装 J...</p>
-              </a>
-            
           </div>
         
-      </section>
-    </article>
+      
+    
+  </section>
   
-
-  
-    <!-- 显示推荐文章和评论 -->
-
-
-
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      
-      
-      
-      
-      
-        <section id="comments">
-          <div id="valine_container" class="valine_thread">
-            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-          </div>
-        </section>
-      
-      
-    </section>
-  </article>
-
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: '盛最多水容器--PHP双指针',
-      tools: true
-    }
-  </script>
-
+    
+  
 
 </div>
 <aside class='l_side'>
   
   
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box' href='/about/'>
+          <img no-lazy src='http://img.qqzhi.com/uploads/2018-11-30/084154682.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Be your own hero</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+        
+          
+            <a href="https://github.com/wqeeqw"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
 
   
     
     
+  
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
+  <section class="widget category shadow desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
     
   </header>
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法核心代码-双指针实现"><span class="toc-text">算法核心代码 双指针实现</span></a></li></ol>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Docker/" href="/categories/Docker/"
+            id="categoriesDocker"
+            ><div class='name'>Docker</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/RabbitMQ/" href="/categories/RabbitMQ/"
+            id="categoriesRabbitMQ"
+            ><div class='name'>RabbitMQ</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" href="/categories/RabbitMQ/%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
+            id="categoriesRabbitMQE59FBAE7A180E78EAFE5A283E690ADE5BBBA"
+            ><div class='name'>基础环境搭建</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/java/" href="/categories/java/"
+            id="categoriesjava"
+            ><div class='name'>java</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/java/Jdk%E5%AE%89%E8%A3%85/" href="/categories/java/Jdk%E5%AE%89%E8%A3%85/"
+            id="categoriesjavaJdkE5AE89E8A385"
+            ><div class='name'>Jdk安装</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/java/spring-boot/" href="/categories/java/spring-boot/"
+            id="categoriesjavaspring-boot"
+            ><div class='name'>spring boot</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/js%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" href="/categories/js%EF%BC%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
+            id="categoriesjsEFBC8CE6ADA3E58899E8A1A8E8BEBEE5BC8F"
+            ><div class='name'>js，正则表达式</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/laravel/" href="/categories/laravel/"
+            id="categorieslaravel"
+            ><div class='name'>laravel</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/laravel/paypal%E6%94%AF%E4%BB%98/" href="/categories/laravel/paypal%E6%94%AF%E4%BB%98/"
+            id="categorieslaravelpaypalE694AFE4BB98"
+            ><div class='name'>paypal支付</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/php/" href="/categories/php/"
+            id="categoriesphp"
+            ><div class='name'>php</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/php/php%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/categories/php/php%E9%9D%A2%E8%AF%95%E9%A2%98/"
+            id="categoriesphpphpE99DA2E8AF95E9A298"
+            ><div class='name'>php面试题</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/php/%E5%BF%AB%E9%80%92%E9%B8%9F%E7%89%A9%E6%B5%81%E8%B7%9F%E8%B8%AA/" href="/categories/php/%E5%BF%AB%E9%80%92%E9%B8%9F%E7%89%A9%E6%B5%81%E8%B7%9F%E8%B8%AA/"
+            id="categoriesphpE5BFABE98092E9B89FE789A9E6B581E8B79FE8B8AA"
+            ><div class='name'>快递鸟物流跟踪</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/"
+            id="categoriesE58886E5B883E5BC8FE69C8DE58AA1E69EB6E69E84"
+            ><div class='name'>分布式服务架构</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BE%AE%E4%BF%A1/" href="/categories/%E5%BE%AE%E4%BF%A1/"
+            id="categoriesE5BEAEE4BFA1"
+            ><div class='name'>微信</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E5%BE%AE%E4%BF%A1/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%BE%AE%E4%BF%A1/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"
+            id="categoriesE5BEAEE4BFA1E5B08FE7A88BE5BA8F"
+            ><div class='name'>小程序</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%80%80%E6%AC%BE/" href="/categories/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%80%80%E6%AC%BE/"
+            id="categoriesE5BEAEE4BFA1E694AFE4BB98E98080E6ACBE"
+            ><div class='name'>微信支付退款</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%94%AF%E4%BB%98/" href="/categories/%E6%94%AF%E4%BB%98/"
+            id="categoriesE694AFE4BB98"
+            ><div class='name'>支付</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"
+            id="categoriesE694AFE4BB98E5BEAEE4BFA1E5B08FE7A88BE5BA8F"
+            ><div class='name'>微信小程序</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%97%A5%E8%AE%B0/" href="/categories/%E6%97%A5%E8%AE%B0/"
+            id="categoriesE697A5E8AEB0"
+            ><div class='name'>日记</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
+            id="categoriesE7AE97E6B395"
+            ><div class='name'>算法</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/" href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/"
+            id="categoriesE7AE97E6B395E695B0E7BB84"
+            ><div class='name'>数组</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%AE%97%E6%B3%95/%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/%E6%B0%B4%E9%87%8F%E7%AE%97%E6%B3%95/"
+            id="categoriesE7AE97E6B395E6B0B4E9878FE7AE97E6B395"
+            ><div class='name'>水量算法</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
     </div>
   </section>
 
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/java-jdk/" style="font-size: 14px; color: #999">java jdk</a> <a href="/tags/java-spring-boot/" style="font-size: 24px; color: #555">java spring boot</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/laravel/" style="font-size: 14px; color: #999">laravel</a> <a href="/tags/php/" style="font-size: 24px; color: #555">php</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 14px; color: #999">微信</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 24px; color: #555">微信 小程序支付</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 24px; color: #555">架构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
+    </div>
+  </section>
+
+
+  
+
+  
 
   
 
@@ -858,60 +883,6 @@
 
 
 
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
-
-  
-  <script>
-  var GUEST_INFO = ['nick','mail','link'];
-  var meta = 'nick,mail,link'.split(',').filter(function(item){
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick','mail','link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function(item){
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-  var valine = new Valine();
-  function emoji(path, idx, ext) {
-      return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  valine.init({
-    el: '#valine_container',
-    meta: meta,
-    
-    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
-    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
-    placeholder: "快来评论吧~",
-    pageSize:'10',
-    avatar:'robohash',
-    lang:'zh-cn',
-    visitor: 'true',
-    highlight: 'true',
-    mathJax: 'false',
-    enableQQ: 'true',
-    requiredFields: requiredFields,
-    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
-    emojiMaps: emojiMaps
-  })
-  </script>
-
 
 
 
@@ -1043,5 +1014,5 @@
 
 
   <script>setLoadingBarProgress(100);</script>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
