@@ -437,9 +437,108 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/07/12/%E6%94%AF%E4%BB%98%E5%AE%9D%E9%80%80%E6%AC%BE/">
+      支付宝退款
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="http://img4.imgtn.bdimg.com/it/u=2778807214,2040307822&fm=26&gp=0.jpg">
+    <p>start</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E6%94%AF%E4%BB%98%E5%AE%9D%E9%80%80%E6%AC%BE/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>支付宝退款</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 12, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-首先你要加载你的支付宝配置项"><a href="#1-首先你要加载你的支付宝配置项" class="headerlink" title="1.首先你要加载你的支付宝配置项"></a>1.首先你要加载你的支付宝配置项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">include(&#39;alipay&#x2F;aop&#x2F;AopClient.php&#39;);</span><br><span class="line">include(&#39;alipay&#x2F;aop&#x2F;request&#x2F;AlipayTradeAppPayRequest.php&#39;);</span><br><span class="line">include(&#39;alipay&#x2F;aop&#x2F;request&#x2F;AlipayTradeRefundRequest.php&#39;);</span><br><span class="line">&#x2F;&#x2F;支付宝appid  (应用标识)</span><br><span class="line">define(&quot;ALIPAY_APPID&quot;, &quot;&quot;);</span><br><span class="line">&#x2F;&#x2F;支付宝(支付宝私钥)</span><br><span class="line">define(&quot;PRIVATE_KEY&quot;, &quot;&quot;);</span><br><span class="line">&#x2F;&#x2F;支付宝(支付宝公钥)</span><br><span class="line">define(&quot;PUBLIC_KEY&quot;, &quot;&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="2，支付宝支付函数"><a href="#2，支付宝支付函数" class="headerlink" title="2，支付宝支付函数"></a>2，支付宝支付函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">     * 支付宝支付</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public function appAlipay()&#123;</span><br><span class="line">            &#x2F;&#x2F; 时间戳</span><br><span class="line">            $timeStamp &#x3D; strval(time());</span><br><span class="line">            $totalFee &#x3D; 1;</span><br><span class="line">            &#x2F;&#x2F; 支付结果显示文字</span><br><span class="line">            $serial_number &#x3D; date(&quot;Ymdhis&quot;) . mt_rand(10, 99);</span><br><span class="line">            $aop &#x3D; new \AopClient();</span><br><span class="line">            $bizcontent &#x3D; json_encode([</span><br><span class="line">                &#39;body&#39;&#x3D;&gt;&quot;测试&quot;,                             &#x2F;&#x2F;商品名称</span><br><span class="line">                &#39;subject&#39;&#x3D;&gt;&#39;测试&#39;,                          &#x2F;&#x2F;主题</span><br><span class="line">                &#39;out_trade_no&#39;&#x3D;&gt; $serial_number,           &#x2F;&#x2F;此订单号为商户唯一订单号</span><br><span class="line">                &#39;total_amount&#39;&#x3D;&gt; $totalFee,                &#x2F;&#x2F;保留两位小数</span><br><span class="line">                &#39;product_code&#39;&#x3D;&gt;&#39;QUICK_MSECURITY_PAY&#39;</span><br><span class="line">            ]);</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;支付宝开始</span><br><span class="line">            $aop-&gt;gatewayUrl &#x3D; &quot;https:&#x2F;&#x2F;openapi.alipay.com&#x2F;gateway.do&quot;;</span><br><span class="line">            &#x2F;&#x2F;实际上线app id需真实的</span><br><span class="line">            $aop-&gt;appId &#x3D; ALIPAY_APPID;</span><br><span class="line">            $aop-&gt;rsaPrivateKey &#x3D; PRIVATE_KEY;</span><br><span class="line">            $aop-&gt;format &#x3D; &quot;json&quot;;</span><br><span class="line">            $aop-&gt;charset  &#x3D; &quot;UTF-8&quot;;</span><br><span class="line">            $aop-&gt;signType &#x3D; &quot;RSA2&quot;;</span><br><span class="line">            $aop-&gt;alipayrsaPublicKey &#x3D; PUBLIC_KEY;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F;实例化具体API对应的request类,类名称和接口名称对应,当前调用接口名称：alipay.trade.app.pay</span><br><span class="line">            $request &#x3D; new \AlipayTradeAppPayRequest();</span><br><span class="line">            &#x2F;&#x2F;支付宝回调</span><br><span class="line">            $notifyUrl&#x3D;&quot;https:&#x2F;&#x2F;openapi.alipay.com&quot;;</span><br><span class="line">            $request-&gt;setNotifyUrl($notifyUrl);</span><br><span class="line">            $request-&gt;setBizContent($bizcontent);</span><br><span class="line">            &#x2F;&#x2F;这里和普通的接口调用不同，使用的是sdkExecute</span><br><span class="line">            $response &#x3D; $aop-&gt;sdkExecute($request);</span><br><span class="line">            $this-&gt;echoSuccess($response);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="3，支付宝回调函数"><a href="#3，支付宝回调函数" class="headerlink" title="3，支付宝回调函数"></a>3，支付宝回调函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">     * 支付宝支付回调</span><br><span class="line">     *</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public function  alipayNotify() &#123;</span><br><span class="line">        if(!empty($_POST))&#123;</span><br><span class="line">            $serial&#x3D;$_POST[&#39;out_trade_no&#39;];</span><br><span class="line">            $wepay_serial &#x3D; $_POST[&#39;trade_no&#39;];</span><br><span class="line">            if (!empty($wepay_serial)) &#123;</span><br><span class="line">                &#x2F;&#x2F;这里可以写自己需求</span><br><span class="line">                echo &quot;返回的参数out_trade_no:&quot;.$serial;</span><br><span class="line">                echo &quot;返回的参数trade_no:&quot;.$wepay_serial;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        echo &#39;success&#39;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-支付宝退款函数"><a href="#4-支付宝退款函数" class="headerlink" title="4.支付宝退款函数"></a>4.支付宝退款函数</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;**</span><br><span class="line">     * 支付宝退货处理</span><br><span class="line">     * 退货前提是必须支付成功</span><br><span class="line">     * @param type $orderId</span><br><span class="line">     * @return bool</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public function alipayRefund($out_trade_no,$wepay_serial,$totalFee) &#123;</span><br><span class="line">         $aop &#x3D; new AopClient ();</span><br><span class="line">         $aop-&gt;gatewayUrl &#x3D; &#39;https:&#x2F;&#x2F;openapi.alipay.com&#x2F;gateway.do&#39;;</span><br><span class="line">         $aop-&gt;appId &#x3D; ALIPAY_APPID;</span><br><span class="line">         $aop-&gt;rsaPrivateKey &#x3D; PRIVATE_KEY;</span><br><span class="line">         $aop-&gt;alipayrsaPublicKey&#x3D;PUBLIC_KEY;</span><br><span class="line">         $aop-&gt;apiVersion &#x3D; &#39;1.0&#39;;</span><br><span class="line">         $aop-&gt;signType &#x3D; &#39;RSA2&#39;;</span><br><span class="line">         $aop-&gt;postCharset&#x3D;&#39;GBK&#39;;</span><br><span class="line">         $aop-&gt;format&#x3D;&#39;json&#39;;</span><br><span class="line">         $request &#x3D; new AlipayTradeRefundRequest ();</span><br><span class="line">         $bizcontent &#x3D; json_encode([</span><br><span class="line">            &#39;out_trade_no&#39;&#x3D;&gt;$out_trade_no,</span><br><span class="line">            &#39;trade_no&#39;&#x3D;&gt; $wepay_serial,</span><br><span class="line">            &#39;refund_amount&#39;&#x3D;&gt; $totalFee,</span><br><span class="line">            &#39;refund_reason&#39;&#x3D;&gt;&#39;正常退款&#39;</span><br><span class="line">             ]);</span><br><span class="line">         $request-&gt;setBizContent($bizcontent);</span><br><span class="line">         $result &#x3D; $aop-&gt;execute($request);</span><br><span class="line">         $responseNode &#x3D; str_replace(&quot;.&quot;, &quot;_&quot;, $request-&gt;getApiMethodName()) . &quot;_response&quot;;</span><br><span class="line">         $resultCode &#x3D; $result-&gt;$responseNode-&gt;code;</span><br><span class="line">         echo $resultCode;</span><br><span class="line">         if(!empty($resultCode)&amp;&amp;$resultCode &#x3D;&#x3D; 10000)&#123;</span><br><span class="line">               echo &quot;退款成功&quot;;</span><br><span class="line">           &#125; else &#123;</span><br><span class="line">                echo &quot;退款失败&quot;;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 输出成功JSON消息</span><br><span class="line">     *&#x2F;</span><br><span class="line">    final public function echoSuccess($msg &#x3D; &#39;success&#39;) &#123;</span><br><span class="line">        $this-&gt;echoMsg(0, $msg);</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 输出JSON消息</span><br><span class="line">     * @param mixed $code</span><br><span class="line">     * @param mixed $msg</span><br><span class="line">     *&#x2F;</span><br><span class="line">    final public function echoMsg($code, $msg &#x3D; &#39;&#39;, $options &#x3D; JSON_UNESCAPED_UNICODE) &#123;</span><br><span class="line">        return $this-&gt;echoJson(array(</span><br><span class="line">                &#39;ret_code&#39; &#x3D;&gt; $code,</span><br><span class="line">                &#39;ret_msg&#39;  &#x3D;&gt; $msg</span><br><span class="line">        ), $options);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 输出JSON</span><br><span class="line">     * @param mixed $arr</span><br><span class="line">     *&#x2F;</span><br><span class="line">    final public function echoJson($arr, $options &#x3D; JSON_UNESCAPED_UNICODE) &#123;</span><br><span class="line">        header(&#39;Content-Type: application&#x2F;json; charset&#x3D;utf-8&#39;);</span><br><span class="line">        if (strpos(PHP_VERSION, &#39;5.3&#39;) &gt; -1) &#123;</span><br><span class="line">            &#x2F;&#x2F; php 5.3-</span><br><span class="line">            echo json_encode($arr);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            &#x2F;&#x2F; php 5.4+</span><br><span class="line">            echo json_encode($arr, $options);</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1210,6 +1309,11 @@
             ><div class='name'>微信小程序</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
+            title="/categories/%E6%94%AF%E4%BB%98%E5%AE%9D%E9%80%80%E6%AC%BE/" href="/categories/%E6%94%AF%E4%BB%98%E5%AE%9D%E9%80%80%E6%AC%BE/"
+            id="categoriesE694AFE4BB98E5AE9DE98080E6ACBE"
+            ><div class='name'>支付宝退款</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/%E6%97%A5%E8%AE%B0/" href="/categories/%E6%97%A5%E8%AE%B0/"
             id="categoriesE697A5E8AEB0"
             ><div class='name'>日记</div><div class='badge'>(3)</div></a></li>
@@ -1251,7 +1355,7 @@
 
 
     <div class='content'>
-      <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/java-jdk/" style="font-size: 14px; color: #999">java jdk</a> <a href="/tags/java-spring-boot/" style="font-size: 24px; color: #555">java spring boot</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/laravel/" style="font-size: 14px; color: #999">laravel</a> <a href="/tags/php/" style="font-size: 24px; color: #555">php</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 14px; color: #999">微信</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 24px; color: #555">微信 小程序支付</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 24px; color: #555">架构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
+      <a href="/tags/RabbitMQ/" style="font-size: 14px; color: #999">RabbitMQ</a> <a href="/tags/docker/" style="font-size: 14px; color: #999">docker</a> <a href="/tags/hexo%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">hexo学习</a> <a href="/tags/java-jdk/" style="font-size: 14px; color: #999">java jdk</a> <a href="/tags/java-spring-boot/" style="font-size: 24px; color: #555">java spring boot</a> <a href="/tags/js/" style="font-size: 14px; color: #999">js</a> <a href="/tags/laravel/" style="font-size: 14px; color: #999">laravel</a> <a href="/tags/php/" style="font-size: 24px; color: #555">php</a> <a href="/tags/php%E5%B0%8F%E7%AE%97%E6%B3%95%E9%94%BB%E7%82%BC/" style="font-size: 14px; color: #999">php小算法锻炼</a> <a href="/tags/workman/" style="font-size: 14px; color: #999">workman</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 14px; color: #999">微信</a> <a href="/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%AF%E4%BB%98/" style="font-size: 24px; color: #555">微信 小程序支付</a> <a href="/tags/%E6%94%AF%E4%BB%98%E5%AE%9D/" style="font-size: 14px; color: #999">支付宝</a> <a href="/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 24px; color: #555">架构</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a>
     </div>
   </section>
 
